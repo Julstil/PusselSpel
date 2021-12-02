@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    public float hp;
+    public float hp = 3;
     // Start is called before the first frame update
     void Start()
     {
-        hp = 3;
+        
     }
 
     // Update is called once per frame

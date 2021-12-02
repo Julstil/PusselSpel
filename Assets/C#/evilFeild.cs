@@ -9,26 +9,27 @@ public class evilFeild : MonoBehaviour
 
     [SerializeField]
     string[] acceptedTag;
+    [SerializeField]
+    string[] notAcceptedTag;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Range(500, 2000)]
+    public int pushBackX;
+    [Range(5, 2000)]
+    public int pushBackY;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        foreach (string item in acceptedTag)
+        foreach (string item in notAcceptedTag)
         {
             if (collision.tag == item)
             {
-                
+                collision.GetComponent<Health>().hp--;
+                var redRB = red.GetComponent<Rigidbody2D>();
+                if (redRB.velocity.y < 1)
+                {
+                    redRB.velocity = new Vector2(redRB.velocity.x,redRB.velocity.y + 1);
+                }
+                redRB.AddForce(new Vector2(-redRB.velocity.x * pushBackX, -redRB.velocity.y * pushBackY));
             }
         }
         

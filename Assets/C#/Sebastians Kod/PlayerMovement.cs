@@ -10,6 +10,10 @@ public class PlayerMovement : MonoBehaviour
 {
     public Vector2 JumpHeight;
     private Rigidbody2D rb;
+    public bool isActive = true;
+    
+    bool isgrounded;
+    public GameObject feet;
 
     void Start()
     {
@@ -17,15 +21,32 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        //Får Tom att röra på sig
-        float horz = Input.GetAxis("Horizontal");
-
-        rb.velocity = new Vector2(horz * 700 * Time.deltaTime, rb.velocity.y); //Kallar hit rb via velocity. Sätter sedan bestämda hastigheten med (horz * x)
-
-        //Får Tom att hoppa
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (isActive)
         {
-            GetComponent<Rigidbody2D>().AddForce(JumpHeight, ForceMode2D.Impulse);
+            //Får Tom att röra på sig
+            float horz = Input.GetAxis("Horizontal");
+
+            rb.velocity = new Vector2(horz * 700 * Time.deltaTime, rb.velocity.y); //Kallar hit rb via velocity. Sätter sedan bestämda hastigheten med (horz * x)
+            if (Mathf.Abs( rb.velocity.y) <0.05f)
+            {
+                isgrounded = true;
+            }
+            //Får Tom att hoppa
+            if (Input.GetKeyDown(KeyCode.Space) && isgrounded)
+            {
+                rb.AddForce(JumpHeight, ForceMode2D.Impulse);
+                isgrounded = false;
+            }
         }
+    }
+
+    public void Reenable()
+    {
+        StartCoroutine(ReenableCoroutine());
+    }
+    public IEnumerator ReenableCoroutine()
+    {
+        yield return new WaitForSeconds(2);
+        isActive = true;
     }
 }

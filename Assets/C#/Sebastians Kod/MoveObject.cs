@@ -4,28 +4,24 @@ using UnityEngine;
 
 public class MoveObject : MonoBehaviour
 {
-
     public float speed = 1.0f;
-
-    public Vector3 target;
+    public Transform target;  
+    public Transform destination;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.transform.tag == "Lever")
+        //Om dessa kriterier möts gör Move() koden sitt jobb.
+        if (collision.transform.tag == "Player" && Input.GetKey(KeyCode.E)) 
         {
-            Move();
+            Move();    
         }
     }
 
     private void Move()
     {
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Vector3 directionToMove = target - transform.position;
-            directionToMove = directionToMove.normalized * Time.deltaTime * speed;
-            float maxDistance = Vector3.Distance(transform.position, target);
-            transform.position = transform.position + Vector3.ClampMagnitude(directionToMove, maxDistance);
-        }
+        Vector3 directionToMove = destination.position - target.position; //Berättar vilket håll objektet ska röra sig mot
+        directionToMove = directionToMove.normalized * Time.deltaTime * speed; //Säger hastigheten
+        float maxDistance = Vector3.Distance(destination.position, target.position); //Säger maxdistansen
+        target.position = target.position + Vector3.ClampMagnitude(directionToMove, maxDistance); //
     }
 }

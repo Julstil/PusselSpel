@@ -519,6 +519,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpHeight: {x: 0, y: 5}
+  isActive: 1
+  feet: {fileID: 0}
 --- !u!50 &778503954
 Rigidbody2D:
   serializedVersion: 4

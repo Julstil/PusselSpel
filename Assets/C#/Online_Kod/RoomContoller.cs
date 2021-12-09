@@ -10,26 +10,38 @@ public class RoomContoller : MonoBehaviourPunCallbacks
 
     public override void OnEnable()
     {
-        PhotonNetwork.AddCallbackTarget(this);
+        if (Menu.singlePlayer == false)
+        {
+            PhotonNetwork.AddCallbackTarget(this);
+        }
     }
 
     public override void OnDisable()
     {
-        PhotonNetwork.RemoveCallbackTarget(this);
+        if (Menu.singlePlayer == false)
+        {
+            PhotonNetwork.RemoveCallbackTarget(this);
+        }
     }
 
     public override void OnJoinedRoom()
     {
-        StartGame();
+        if (Menu.singlePlayer == false)
+        {
+            StartGame();
+        }
     }
 
     void StartGame()
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (Menu.singlePlayer == false)
         {
-            print("Starting Game...");
-            PhotonNetwork.LoadLevel(sceneIndex);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                print("Starting Game...");
+                PhotonNetwork.LoadLevel(sceneIndex);
+            }
         }
     }
-
+    //"if (Menu.singlePlayer == false)" gör att online koden aktiveras. - Daniel
 }

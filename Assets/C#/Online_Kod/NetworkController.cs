@@ -14,20 +14,30 @@ public class NetworkController : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        startbutton.interactable = false;
-        PhotonNetwork.ConnectUsingSettings();
-        print("Connecting...");
+        if (Menu.singlePlayer == false)
+        {
+            startbutton.interactable = false;
+            PhotonNetwork.ConnectUsingSettings();
+            print("Connecting...");
+        }
     }
 
     public override void OnConnectedToMaster()
     {
-        print("Connected to server in " + PhotonNetwork.CloudRegion);
-        startbutton.interactable = true;
-        PhotonNetwork.AutomaticallySyncScene = true;
+        if (Menu.singlePlayer == false)
+        {
+            print("Connected to server in " + PhotonNetwork.CloudRegion);
+            startbutton.interactable = true;
+            PhotonNetwork.AutomaticallySyncScene = true;
+        }
     }
 
     public void setUserName()
     {
-        PhotonNetwork.LocalPlayer.NickName = nameField.text;
+        if (Menu.singlePlayer == false)
+        {
+            PhotonNetwork.LocalPlayer.NickName = nameField.text;
+        }
     }
+    //"if (Menu.singlePlayer == false)" gör att online koden aktiveras. - Daniel
 }

@@ -1,20 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class HealthBar : MonoBehaviour
 {
 
-    public float Health;
-    // Start is called before the first frame update
-    void Start()
+    private Image healthBar;
+    public float currentHealth;
+    private float maxHealth = 3f;
+    Health Tom;
+
+    void start()
     {
-        
+        //Hitta
+        healthBar = GetComponent<Image>();
+        Tom = FindObjectOfType<Health>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void update()
     {
-        
+        currentHealth.Tom.Health;
+        HealthBar.fillAmount = currentHealth / maxHealth;
     }
+
 }

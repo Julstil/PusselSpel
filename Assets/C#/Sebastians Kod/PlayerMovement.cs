@@ -13,7 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public bool isActive = true;
     
     bool isgrounded;
-    public GameObject feet;
+
+    public float enableMovementTime;
 
     void Start()
     {
@@ -27,10 +28,12 @@ public class PlayerMovement : MonoBehaviour
             float horz = Input.GetAxis("Horizontal");
 
             rb.velocity = new Vector2(horz * 700 * Time.deltaTime, rb.velocity.y); //Kallar hit rb via velocity. Sätter sedan bestämda hastigheten med (horz * x)
+            
             if (Mathf.Abs( rb.velocity.y) <0.05f)
             {
                 isgrounded = true;
             }
+
             //Får Tom att hoppa
             if (Input.GetKeyDown(KeyCode.Space) && isgrounded)
             {
@@ -46,7 +49,15 @@ public class PlayerMovement : MonoBehaviour
     }
     public IEnumerator ReenableCoroutine()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(enableMovementTime);
         isActive = true;
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //Om dessa kriterier möts gör Move() koden sitt jobb.
+        if (collision.GetComponent<IBtn>() != null && Input.GetKey(KeyCode.E))
+        {
+            collision.GetComponent<IBtn>().Btn();
+        }
     }
 }

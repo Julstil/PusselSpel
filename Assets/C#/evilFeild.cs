@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class evilFeild : MonoBehaviour
 {
-    //public GameObject red;
-   // public GameObject blue;
-    float time = 0;
-    public float enableScriptTime = 0.2f;
-
     [SerializeField]
-    string[] acceptedTag;
+    public string[] acceptedTag;
     [SerializeField]
     string[] notAcceptedTag;
 
-    [Range(0, 2000)]
+    [Range(5, 2000)]
     public int pushBackX;
     [Range(5, 2000)]
     public int pushBackY;
@@ -25,16 +20,16 @@ public class evilFeild : MonoBehaviour
         {
             if (collision.tag == item)
             {
-                var redPM = collision.GetComponent<PlayerMovement>();
-                redPM.isActive = false;
+                var playerPM = collision.GetComponent<PlayerMovement>();
+                playerPM.isActive = false;
                 collision.GetComponent<Health>().hp--;
-                var redRB = collision.GetComponent<Rigidbody2D>();
-                if (redRB.velocity.y < 1)
+                var playerRB = collision.GetComponent<Rigidbody2D>();
+                if (playerRB.velocity.y < 1)
                 {
-                    redRB.velocity = new Vector2(redRB.velocity.x, redRB.velocity.y + 1);
+                    playerRB.velocity = new Vector2(playerRB.velocity.x, playerRB.velocity.y + 1);
                 }
-                redRB.AddForce(new Vector2(-redRB.velocity.x * pushBackX, -redRB.velocity.y * pushBackY));
-                redPM.Reenable();
+                playerRB.AddForce(new Vector2(-playerRB.velocity.x * pushBackX, -playerRB.velocity.y * pushBackY));
+                playerPM.Reenable();
             }
         }
         

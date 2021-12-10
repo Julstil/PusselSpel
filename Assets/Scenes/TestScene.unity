@@ -148,17 +148,17 @@ RectTransform:
   m_GameObject: {fileID: 71737901}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -0.029569348, y: -0.003565743, z: -0.038154}
+  m_LocalScale: {x: -0.029569348, y: -0.003565743, z: 0}
   m_Children:
   - {fileID: 205933139}
   m_Father: {fileID: 2128425609}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &71737903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e6e5789cc59277c4ab5f9b02a74c8c14, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -668,7 +668,7 @@ GameObject:
   - component: {fileID: 778503959}
   - component: {fileID: 778503960}
   m_Layer: 0
-  m_Name: Tom
+  m_Name: w
   m_TagString: Tom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JumpHeight: {x: 0, y: 5}
   isActive: 1
-  enableMovementTime: 0
+  enableMovementTime: 1.5
 --- !u!50 &778503954
 Rigidbody2D:
   serializedVersion: 4
@@ -781,7 +781,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778503952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.44, y: 0.24, z: 1}
+  m_LocalPosition: {x: -2.29, y: 0.24, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1106,6 +1106,16 @@ PrefabInstance:
         type: 3}
       propertyPath: notAcceptedTag.Array.data[0]
       value: Tom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2748671217181413257, guid: f57b316b9e470f042b76fbd1b414f99a,
+        type: 3}
+      propertyPath: pushBackX
+      value: 93
+      objectReference: {fileID: 0}
+    - target: {fileID: 2748671217181413257, guid: f57b316b9e470f042b76fbd1b414f99a,
+        type: 3}
+      propertyPath: pushBackY
+      value: 61
       objectReference: {fileID: 0}
     - target: {fileID: 2748671217181413261, guid: f57b316b9e470f042b76fbd1b414f99a,
         type: 3}

@@ -12,17 +12,19 @@ public class HealthBar : MonoBehaviour
     private float maxHealth = 3f;
     Health Tom;
 
+    Image image;
+
     void start()
     {
         //Hitta
         healthBar = GetComponent<Image>();
-        Tom = FindObjectOfType<Health>();
+        Tom = GetComponent<Health>();
     }
 
     void update()
     {
-        currentHealth.Tom.Health;
-        HealthBar.fillAmount = currentHealth / maxHealth;
+        Tom.hp = currentHealth; 
+        image.fillAmount = currentHealth / maxHealth;
     }
 
 }

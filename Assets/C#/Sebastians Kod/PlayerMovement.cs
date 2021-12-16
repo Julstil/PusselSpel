@@ -10,7 +10,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public KeyCode jump = KeyCode.Space;
+    public KeyCode jump;
+    public KeyCode interact;
     public Vector2 JumpHeight;
     private Rigidbody2D rb;
     public bool isActive = true;

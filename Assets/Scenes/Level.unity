@@ -5224,7 +5224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c2352ad179d3e4ab6a26403e2fa56d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jump: 32
+  jump: 119
+  interact: 115
   JumpHeight: {x: 0, y: 5}
   isActive: 1
   moveSpeed: 150

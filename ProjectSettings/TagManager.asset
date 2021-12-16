@@ -9,6 +9,7 @@ TagManager:
   - Lever
   - Tom
   - evilFeild
+  - Enemy
   layers:
   - Default
   - TransparentFX

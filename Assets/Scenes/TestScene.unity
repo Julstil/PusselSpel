@@ -148,17 +148,17 @@ RectTransform:
   m_GameObject: {fileID: 71737901}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -0.029569348, y: -0.003565743, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 205933139}
   m_Father: {fileID: 2128425609}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 163.1, y: 40.2}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &71737903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,7 +281,6 @@ GameObject:
   - component: {fileID: 205933139}
   - component: {fileID: 205933142}
   - component: {fileID: 205933141}
-  - component: {fileID: 205933140}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -298,29 +297,16 @@ RectTransform:
   m_GameObject: {fileID: 205933138}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.98714423, y: 0.9199851, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 71737902}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: -10, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &205933140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 205933138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb5d09a65e09a09438bef46d464c28ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHealth: 100
 --- !u!114 &205933141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -800,6 +786,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
+  healthBar: {fileID: 0}
+  currentHealth: 3
+  maxHealth: 0
 --- !u!114 &778503960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -812,7 +801,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb5d09a65e09a09438bef46d464c28ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 71737903}
   currentHealth: 3
+  maxHealth: 3
 --- !u!1 &848244886
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,6 +1087,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 2748671217181413254, guid: f57b316b9e470f042b76fbd1b414f99a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2748671217181413257, guid: f57b316b9e470f042b76fbd1b414f99a,
         type: 3}

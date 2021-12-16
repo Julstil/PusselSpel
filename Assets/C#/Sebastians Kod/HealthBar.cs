@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
 
-    private Image healthBar;
-    public float currentHealth;
-    private float maxHealth = 3f;
+    public Image healthBar;
+    public float currentHealth = 3f;
+    public float maxHealth = 3f;
     Health Tom;
 
     Image image;
@@ -21,7 +21,7 @@ public class HealthBar : MonoBehaviour
         Tom = GetComponent<Health>();
     }
 
-    void update()
+    public void health(float health)
     {
         Tom.hp = currentHealth; 
         image.fillAmount = currentHealth / maxHealth;

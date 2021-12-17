@@ -10,6 +10,7 @@ TagManager:
   - Tom
   - evilFeild
   - Enemy
+  - Bob
   layers:
   - Default
   - TransparentFX

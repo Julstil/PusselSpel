@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Orb : MonoBehaviour
+public class Orb2 : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -16,7 +16,7 @@ public class Orb : MonoBehaviour
     {
         if (collision.transform.tag == "Tom") //Måste byta tag till både "Tom" och "Bob" tagsen. - Daniel
         {
-            SceneManager.LoadScene("Level 2");
+            SceneManager.LoadScene("GameClear");
         }
     }
 }

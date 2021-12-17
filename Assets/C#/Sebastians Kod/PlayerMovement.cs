@@ -11,6 +11,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public KeyCode jump;
+    public KeyCode left;
+    public KeyCode right;
     public KeyCode interact;
     public Vector2 JumpHeight;
     private Rigidbody2D rb;
@@ -20,34 +22,68 @@ public class PlayerMovement : MonoBehaviour
 
     public int moveSpeed;
 
+    public int horz;
+
     public float enableMovementTime;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); //Kallar hit Tom
-        
+        horz = 1;
     }
     void Update()
     {
         if (isActive)
         {
-            //Får Tom att röra på sig
-            float horz = Input.GetAxis("Horizontal");
-
-            rb.velocity = new Vector2(horz * moveSpeed * Time.fixedDeltaTime, rb.velocity.y); //Kallar hit rb via velocity. Sätter sedan bestämda hastigheten med (horz * x)
-            
-            if (Mathf.Abs( rb.velocity.y) <0.05f)
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y); //Kallar hit rb via velocity. Sätter sedan bestämda hastigheten med (horz * x)
+            if (Menu.singlePlayer == false)
             {
-                isgrounded = true;
-            }
+                {
+                    //Får Tom att röra på sig
+                    float horz = Input.GetAxis("Horizontal");
 
-            //Får Tom att hoppa
-            if (Input.GetKeyDown(jump) && isgrounded)
-            {
-                rb.AddForce(JumpHeight, ForceMode2D.Impulse);
-                isgrounded = false;
+                    rb.velocity = new Vector2(horz * moveSpeed * Time.fixedDeltaTime, rb.velocity.y); //Kallar hit rb via velocity. Sätter sedan bestämda hastigheten med (horz * x)
+
+                    if (Mathf.Abs(rb.velocity.y) < 0.05f)
+                    {
+                        isgrounded = true;
+                    }
+                }
             }
-        }
+                if (Menu.singlePlayer == true)
+                {
+                    //Får Tom att röra på sig
+                    if (Input.GetKey(right))
+                    {
+
+                        rb.velocity = new Vector2(horz * moveSpeed * Time.fixedDeltaTime, rb.velocity.y); //Kallar hit rb via velocity. Sätter sedan bestämda hastigheten med (horz * x)
+
+                        if (Mathf.Abs(rb.velocity.y) < 0.05f)
+                        {
+                            isgrounded = true;
+                        }
+
+
+                    }
+                    if (Input.GetKey(left))
+                    {
+
+                        rb.velocity = new Vector2(-horz * moveSpeed * Time.fixedDeltaTime, rb.velocity.y); //Kallar hit rb via velocity. Sätter sedan bestämda hastigheten med (horz * x)
+
+                        if (Mathf.Abs(rb.velocity.y) < 0.05f)
+                        {
+                            isgrounded = true;
+                        }
+
+                    }
+                }
+                //Får Tom att hoppa
+                if (Input.GetKeyDown(jump) && isgrounded)
+                {
+                    rb.AddForce(JumpHeight, ForceMode2D.Impulse);
+                    isgrounded = false;
+                }
+            }
     }
 
     public void Reenable()
@@ -62,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         //Om dessa kriterier möts gör Move() koden sitt jobb.
-        if (collision.GetComponent<IBtn>() != null && Input.GetKey(KeyCode.E))
+        if (collision.GetComponent<IBtn>() != null && Input.GetKey(interact))
         {
             collision.GetComponent<IBtn>().Btn();
         }

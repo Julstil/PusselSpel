@@ -672,8 +672,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c2352ad179d3e4ab6a26403e2fa56d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jump: 0
+  interact: 0
   JumpHeight: {x: 0, y: 5}
   isActive: 1
+  moveSpeed: 250
   enableMovementTime: 1.5
 --- !u!50 &778503954
 Rigidbody2D:
@@ -786,9 +789,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
-  healthBar: {fileID: 0}
-  currentHealth: 3
-  maxHealth: 0
 --- !u!114 &778503960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1091,7 +1091,7 @@ PrefabInstance:
     - target: {fileID: 2748671217181413254, guid: f57b316b9e470f042b76fbd1b414f99a,
         type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: evilFeild
       objectReference: {fileID: 0}
     - target: {fileID: 2748671217181413257, guid: f57b316b9e470f042b76fbd1b414f99a,
         type: 3}

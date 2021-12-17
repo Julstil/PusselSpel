@@ -11,10 +11,11 @@ public class MoveObject : MonoBehaviour, IBtn
 
     public void Btn()
     {
-        Vector3 directionToMove = destination.position - target.position; //Berättar vilket håll objektet ska röra sig mot
-        directionToMove = directionToMove.normalized * Time.deltaTime * speed; //Säger hastigheten
-        float maxDistance = Vector3.Distance(destination.position, target.position); //Säger maxdistansen
-        target.position = target.position + Vector3.ClampMagnitude(directionToMove, maxDistance); //
-        child.Open();
+        //Säger vart objektet ska, hastigheten, maxdistansen samt ser till så att inget knas händer så att den stannar när den har kommit till destinationen
+        Vector3 directionToMove = destination.position - target.position; 
+        directionToMove = directionToMove.normalized * Time.deltaTime * speed;
+        float maxDistance = Vector3.Distance(destination.position, target.position); 
+        target.position = target.position + Vector3.ClampMagnitude(directionToMove, maxDistance); 
+        child.Open(); //Edvin
     }
 }

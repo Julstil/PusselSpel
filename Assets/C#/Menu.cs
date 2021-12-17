@@ -21,7 +21,7 @@ public class Menu : MonoBehaviour
             SceneManager.LoadScene("Level"); //Laddar in scenen "Level" om man trycker på Space i menyn. Scenen laddas in med "singlePlayer" boolen som true, det gör att spelet är i singleplayer läge. - Daniel
         }
 
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             singlePlayer = false;
             SceneManager.LoadScene("Level"); //Laddar in scenen "Level" om man trycker på Space i menyn. Scenen laddas in med "singlePlayer" boolen som false, det gör att spelet inte är i singleplayer läge, den kommer vara i online multiplayer läge. - Daniel
